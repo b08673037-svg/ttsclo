@@ -1,0 +1,109 @@
+.search-panel {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--color-black-soft);
+  border-bottom: 1px solid transparent;
+  transition: max-height 0.3s ease, border-color 0.3s ease, background 0.4s ease;
+}
+
+body.light .search-panel {
+  background: #f2efe6;
+}
+
+.search-panel.is-open {
+  max-height: 90px;
+  border-bottom-color: var(--color-border);
+}
+
+.search-panel__form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 5%;
+}
+
+.search-panel__icon {
+  color: var(--color-gold);
+  font-size: 18px;
+}
+
+body.light .search-panel__icon {
+  color: #f4511e;
+}
+
+.search-panel__form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 4px;
+  font-size: 15px;
+  color: inherit;
+  outline: none;
+}
+
+body.light .search-panel__form input {
+  border-bottom-color: #dcdcdc;
+}
+
+.search-panel__form input::placeholder {
+  color: var(--color-text-dim);
+}
+
+.search-panel__form input:focus {
+  border-bottom-color: var(--color-gold);
+}
+
+body.light .search-panel__form input:focus {
+  border-bottom-color: #f4511e;
+}
+
+.search-panel__submit {
+  background: var(--color-gold);
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+body.light .search-panel__submit {
+  background: #f4511e;
+  color: #fff;
+}
+
+.search-panel__submit:hover {
+  background: var(--color-gold-hover);
+}
+
+body.light .search-panel__submit:hover {
+  background: #d84315;
+}
+
+.search-panel__close {
+  display: inline-flex;
+  font-size: 18px;
+  color: var(--color-text-muted);
+  padding: 6px;
+  border-radius: 8px;
+  transition: color 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.search-panel__close:hover {
+  color: var(--color-gold);
+}
+
+body.light .search-panel__close {
+  color: #4a4a4a;
+}
+
+body.light .search-panel__close:hover {
+  color: #f4511e;
+}

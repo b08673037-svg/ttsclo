@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --contact-bg: #0A0A0A;
+  --contact-text-main: #F7F4F0;
+  --contact-text-muted: #B8B8B8;
+  --contact-gold: #DDB52B;
+}
+
+body.light {
+  --contact-bg: #f7f6f2;
+  --contact-text-main: #14120c;
+  --contact-text-muted: #555555;
+  --contact-gold: #f4511e;
+}
+
+.contact-page {
+  background-color: var(--contact-bg);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 6%;
+  transition: background-color 0.4s ease;
+}
+
+.contact-hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-hero__content {
+  max-width: 650px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ANIMATIONS */
+.contact-hero__eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--contact-text-muted);
+  margin-bottom: 20px;
+  animation: fadeUp 0.6s ease forwards;
+  transition: color 0.4s ease;
+}
+
+.contact-hero__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--contact-text-main);
+  line-height: 1.15;
+  margin-bottom: 20px;
+  max-width: 550px;
+  animation: fadeUp 0.7s ease 0.1s forwards;
+  opacity: 0; /* Initial state for animation */
+  transform: translateY(20px);
+  transition: color 0.4s ease;
+}
+
+.contact-hero__title .highlight {
+  color: var(--contact-gold);
+  font-style: italic;
+  transition: color 0.4s ease;
+}
+
+.contact-hero__description {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--contact-text-muted);
+  max-width: 600px;
+  animation: fadeUp 0.7s ease 0.2s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: color 0.4s ease;
+}
+
+/* KEYFRAMES */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .contact-hero__title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 60px 5%;
+  }
+  .contact-hero__title {
+    font-size: 34px;
+  }
+  .contact-hero__description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-hero__title {
+    font-size: 28px;
+  }
+}
+
+/* ACCESSIBILITY - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .contact-hero__eyebrow,
+  .contact-hero__title,
+  .contact-hero__description {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
+
+
+
+/* --- ADD TO BOTTOM OF Contact.css --- */
+
+.contact-section-wrapper {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 6% 100px 6%;
+}
+
+.contact-section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr; /* 40% / 60% split */
+  gap: 30px;
+  align-items: start;
+}
+
+/* Since .contact-page was centered, we need to adjust padding */
+.contact-page {
+  display: block; /* Override flex center */
+  padding: 80px 0; /* Reset padding for the wrapper */
+}
+
+/* Re-apply padding to hero inside */
+.contact-hero {
+  padding: 0 6% 60px 6%;
+}
+
+@media (max-width: 768px) {
+  .contact-section-grid {
+    grid-template-columns: 1fr; /* Stack on mobile */
+  }
+  .contact-section-wrapper {
+    padding: 0 5% 60px 5%;
+  }
+  .contact-page {
+    padding: 60px 0;
+  }
+  .contact-hero {
+    padding: 0 5% 40px 5%;
+  }
+}

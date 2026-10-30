@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap');
+
+.admin-settings {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.settings-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 16px; flex-wrap: wrap;
+}
+.page-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px; color: #F5F5F5; margin: 0 0 4px;
+}
+.page-subtitle { font-size: 13px; color: #A5A7AB; margin: 0; }
+
+.settings-save-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; background: #E5B547;
+  color: #000; border: none; border-radius: 8px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: all 0.2s;
+}
+.settings-save-btn:hover:not(:disabled) { filter: brightness(1.1); transform: translateY(-1px); }
+.settings-save-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.settings-tabs {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  border-bottom: 1px solid #292B2D;
+  padding-bottom: 0;
+}
+.settings-tab {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 18px; background: transparent;
+  border: none; border-bottom: 2px solid transparent;
+  color: #A5A7AB; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+  transition: all 0.2s; margin-bottom: -1px;
+}
+.settings-tab svg { font-size: 14px; }
+.settings-tab:hover { color: #F5F5F5; }
+.settings-tab.active {
+  color: #E5B547; border-bottom-color: #E5B547;
+}
+
+.settings-content {
+  background: #101112; border: 1px solid #292B2D;
+  border-radius: 12px; padding: 24px;
+}
+
+.settings-section { display: flex; flex-direction: column; gap: 16px; }
+.settings-section-title {
+  font-size: 14px; font-weight: 700; color: #F5F5F5;
+  margin: 0; padding-bottom: 12px;
+  border-bottom: 1px solid #292B2D;
+}
+
+.settings-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.settings-group { display: flex; flex-direction: column; gap: 6px; }
+.settings-group label {
+  font-size: 11px; font-weight: 600; color: #A5A7AB;
+  text-transform: uppercase; letter-spacing: 0.4px;
+}
+.settings-group input,
+.settings-group textarea {
+  background: #0D0F10; border: 1px solid #292B2D;
+  border-radius: 8px; padding: 11px 12px;
+  color: #F5F5F5; font-family: inherit; font-size: 13px;
+  outline: none; transition: border-color 0.2s;
+}
+.settings-group input:focus,
+.settings-group textarea:focus { border-color: #E5B547; }
+.settings-group textarea { resize: vertical; min-height: 70px; }
+
+.settings-faq-head {
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 12px;
+}
+.settings-add-faq {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; background: transparent;
+  border: 1px solid #292B2D; border-radius: 8px;
+  color: #E5B547; font-size: 12px; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+  transition: all 0.2s;
+}
+.settings-add-faq:hover {
+  background: rgba(229, 181, 71, 0.1);
+  border-color: #E5B547;
+}
+
+.settings-faq-item {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 16px; background: #0D0F10;
+  border: 1px solid #292B2D; border-radius: 10px;
+}
+
+.settings-remove-faq {
+  display: inline-flex; align-items: center; gap: 6px;
+  align-self: flex-end; padding: 6px 12px;
+  background: rgba(240, 90, 90, 0.08);
+  border: 1px solid rgba(240, 90, 90, 0.3);
+  border-radius: 6px; color: #F05A5A;
+  font-size: 11px; font-weight: 600;
+  cursor: pointer; font-family: inherit;
+  transition: all 0.2s;
+}
+.settings-remove-faq:hover { background: rgba(240, 90, 90, 0.15); }
+
+.settings-empty {
+  font-size: 13px; color: #73767B;
+  text-align: center; padding: 30px 20px;
+}
+
+.admin-loading-screen {
+  height: 60vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: #73767B; gap: 16px;
+}
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid rgba(229, 181, 71, 0.2);
+  border-top-color: #E5B547; border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+  .settings-header { flex-direction: column; }
+  .settings-save-btn { width: 100%; justify-content: center; }
+  .settings-row { grid-template-columns: 1fr; }
+  .settings-tabs { overflow-x: auto; }
+}

@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ast-bg: #090909;
+  --ast-text-main: #F5F3F0;
+  --ast-text-muted: #A5A9B5;
+  --ast-gold: #D9B32F;
+  --ast-card-bg: #121212;
+  --ast-card-border: #272727;
+}
+
+.assistance {
+  background-color: var(--ast-bg);
+  padding: 100px 6%;
+  width: 100%;
+  transition: background-color 0.4s ease;
+}
+
+body.light .assistance {
+  background-color: #f7f6f2;
+}
+
+.assistance__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ================= LEFT COLUMN ================= */
+.assistance__content {
+  flex: 0 0 50%;
+  max-width: 550px;
+}
+
+.assistance__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ast-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  transition: color 0.4s ease;
+}
+
+body.light .assistance__eyebrow {
+  color: #f4511e;
+}
+
+.eyebrow-icon {
+  font-size: 10px;
+}
+
+.assistance__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-white {
+  color: var(--ast-text-main);
+  transition: color 0.4s ease;
+}
+
+.text-gold {
+  color: var(--ast-gold);
+  transition: color 0.4s ease;
+}
+
+body.light .text-white {
+  color: #14120c;
+}
+
+body.light .text-gold {
+  color: #f4511e;
+}
+
+.assistance__desc {
+  color: var(--ast-text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 570px;
+  margin-bottom: 32px;
+  transition: color 0.4s ease;
+}
+
+body.light .assistance__desc {
+  color: #555555;
+}
+
+/* CHECKLIST */
+.assistance__checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.assistance__checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--ast-text-main);
+  font-size: 14px;
+  line-height: 1.4;
+  transition: color 0.4s ease;
+}
+
+body.light .assistance__checklist li {
+  color: #333333;
+}
+
+.check-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(217, 179, 47, 0.15);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: background-color 0.4s ease;
+}
+
+body.light .check-icon-wrapper {
+  background-color: rgba(244, 81, 30, 0.15);
+}
+
+.check-icon {
+  font-size: 10px;
+  color: var(--ast-gold);
+  transition: color 0.4s ease;
+}
+
+body.light .check-icon {
+  color: #f4511e;
+}
+
+/* BUTTONS */
+.assistance__actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 53px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+  padding: 0 24px;
+}
+
+.btn--gold {
+  background-color: var(--ast-gold);
+  color: #000;
+  box-shadow: 0 0 18px rgba(217, 179, 47, 0.35);
+}
+
+.btn--gold:hover {
+  box-shadow: 0 0 24px rgba(217, 179, 47, 0.55);
+  transform: translateY(-2px);
+}
+
+body.light .btn--gold {
+  background-color: #f4511e;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(244, 81, 30, 0.3);
+}
+
+body.light .btn--gold:hover {
+  box-shadow: 0 6px 16px rgba(244, 81, 30, 0.4);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--ast-text-main);
+  border: 1px solid var(--ast-card-border);
+}
+
+.btn--outline:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: #444;
+  transform: translateY(-2px);
+}
+
+body.light .btn--outline {
+  color: #14120c;
+  border-color: #dcdcdc;
+}
+
+body.light .btn--outline:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #bbb;
+}
+
+/* ================= RIGHT COLUMN (LADDER LAYOUT) ================= */
+.assistance__cards {
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 20px; /* Prevents scrollbar on hover */
+}
+
+.assistance-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--ast-card-bg);
+  border: 1px solid var(--ast-card-border);
+  border-radius: 16px;
+  padding: 20px;
+  height: 83px;
+  width: 100%;
+  max-width: 430px; /* Fixed width for cards */
+  text-decoration: none;
+  transition: transform 250ms ease, border-color 250ms ease, background-color 0.4s ease;
+}
+
+/* 1. Default Ladder Positions */
+.assistance-card:nth-child(1) {
+  transform: translateX(0); /* Farthest left */
+}
+.assistance-card:nth-child(2) {
+  transform: translateX(30px); /* Pushed to the right */
+  align-self: flex-end; /* Ensures it sits nicely on the right */
+}
+.assistance-card:nth-child(3) {
+  transform: translateX(15px); /* Middle ground */
+}
+
+/* 2. Hover Effect - Moves further right from their staggered positions */
+.assistance-card:nth-child(1):hover {
+  transform: translateX(8px);
+  border-color: #3a3320;
+}
+.assistance-card:nth-child(2):hover {
+  transform: translateX(38px); /* 30px + 8px */
+  border-color: #3a3320;
+}
+.assistance-card:nth-child(3):hover {
+  transform: translateX(23px); /* 15px + 8px */
+  border-color: #3a3320;
+}
+
+body.light .assistance-card {
+  background-color: #ffffff;
+  border-color: #e5e1d5;
+}
+
+body.light .assistance-card:hover {
+  border-color: #f4511e;
+}
+
+.assistance-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.assistance-card__text h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ast-text-main);
+  margin-bottom: 4px;
+  transition: color 0.4s ease;
+}
+
+body.light .assistance-card__text h3 {
+  color: #14120c;
+}
+
+.assistance-card__text p {
+  font-size: 13px;
+  color: var(--ast-text-muted);
+  transition: color 0.4s ease;
+}
+
+body.light .assistance-card__text p {
+  color: #777;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .assistance__container {
+    gap: 30px;
+  }
+  .assistance__title {
+    font-size: 36px;
+  }
+  .assistance__content {
+    flex: 0 0 55%;
+  }
+  .assistance__cards {
+    flex: 0 0 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .assistance {
+    padding: 60px 5%;
+  }
+
+  .assistance__container {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .assistance__content {
+    max-width: 100%;
+    flex: 1;
+  }
+
+  .assistance__title {
+    font-size: 32px;
+  }
+
+  .assistance__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .assistance__cards {
+    max-width: 100%;
+    width: 100%;
+    flex: 1;
+    padding-right: 0;
+  }
+
+  /* Reset the ladder layout on mobile so it fits the screen */
+  .assistance-card:nth-child(1),
+  .assistance-card:nth-child(2),
+  .assistance-card:nth-child(3) {
+    transform: translateX(0) !important;
+    align-self: center;
+  }
+  
+  .assistance-card {
+    max-width: 100%;
+  }
+
+  @media (hover: none) {
+    .assistance-card:hover {
+      transform: translateX(0) !important;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assistance-card {
+    transition: none;
+  }
+  .assistance-card:hover {
+    transform: none !important;
+  }
+}

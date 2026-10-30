@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap');
+
+.admin-categories {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cat-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 16px; flex-wrap: wrap;
+}
+.page-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px; color: #F5F5F5; margin: 0 0 4px;
+}
+.page-subtitle { font-size: 13px; color: #A5A7AB; margin: 0; }
+
+.cat-add-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; background: #E5B547;
+  color: #000; border: none; border-radius: 8px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: all 0.2s;
+}
+.cat-add-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.cat-form-card {
+  background: #101112; border: 1px solid #E5B547;
+  border-radius: 12px; padding: 22px;
+  animation: catSlideDown 0.3s ease;
+}
+@keyframes catSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cat-form-head {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 18px;
+}
+.cat-form-head h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px; font-weight: 400; color: #F5F5F5; margin: 0;
+}
+.cat-form-close {
+  background: transparent; border: none;
+  color: #73767B; font-size: 18px; cursor: pointer;
+}
+.cat-form-close:hover { color: #F5F5F5; }
+
+.cat-form { display: flex; flex-direction: column; gap: 14px; }
+.cat-form-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+.cat-form-group { display: flex; flex-direction: column; gap: 6px; }
+.cat-form-group label {
+  font-size: 11px; font-weight: 600; color: #A5A7AB;
+  text-transform: uppercase; letter-spacing: 0.4px;
+}
+.cat-form-group input,
+.cat-form-group textarea {
+  background: #0D0F10; border: 1px solid #292B2D;
+  border-radius: 8px; padding: 11px 12px;
+  color: #F5F5F5; font-family: inherit; font-size: 13px;
+  outline: none; transition: border-color 0.2s;
+}
+.cat-form-group input:focus,
+.cat-form-group textarea:focus { border-color: #E5B547; }
+.cat-form-group input.error { border-color: #F05A5A; }
+.cat-error { font-size: 10px; color: #F05A5A; }
+
+.cat-image-preview {
+  width: 100px; height: 100px;
+  border: 1px dashed #292B2D; border-radius: 8px;
+  overflow: hidden; padding: 4px;
+}
+.cat-image-preview img {
+  width: 100%; height: 100%;
+  object-fit: cover; border-radius: 6px;
+}
+
+.cat-checkbox {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: #F5F5F5; cursor: pointer;
+}
+.cat-checkbox input {
+  accent-color: #E5B547; width: 16px; height: 16px;
+}
+
+.cat-form-actions {
+  display: flex; justify-content: flex-end; gap: 10px;
+  margin-top: 10px; padding-top: 16px;
+  border-top: 1px solid #292B2D;
+}
+.cat-btn-secondary {
+  padding: 10px 20px; background: transparent;
+  border: 1px solid #292B2D; border-radius: 8px;
+  color: #A5A7AB; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: inherit; transition: all 0.2s;
+}
+.cat-btn-secondary:hover { border-color: #4A4D50; color: #F5F5F5; }
+.cat-btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 22px; background: #E5B547;
+  border: none; border-radius: 8px; color: #000;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: all 0.2s;
+}
+.cat-btn-primary:hover:not(:disabled) { filter: brightness(1.1); }
+.cat-btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.cat-table-wrap {
+  background: #101112; border: 1px solid #292B2D;
+  border-radius: 12px; overflow: hidden;
+}
+.cat-table { width: 100%; border-collapse: collapse; }
+.cat-table th {
+  text-align: left; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.6px; color: #73767B; padding: 12px;
+  border-bottom: 1px solid #292B2D; background: #0D0F10; font-weight: 700;
+}
+.cat-table td {
+  padding: 14px 12px; border-bottom: 1px solid rgba(41, 43, 45, 0.5);
+  font-size: 12px; color: #F5F5F5; vertical-align: middle;
+}
+.cat-table tr:last-child td { border-bottom: none; }
+.cat-table tr:hover { background: rgba(255, 255, 255, 0.02); }
+.text-muted { color: #73767B; }
+.bold { font-weight: 700; }
+
+.cat-thumb {
+  width: 44px; height: 44px; border-radius: 6px;
+  object-fit: cover; border: 1px solid #292B2D;
+}
+.cat-thumb-placeholder {
+  width: 44px; height: 44px; border-radius: 6px;
+  background: #141515; border: 1px solid #292B2D;
+  display: flex; align-items: center; justify-content: center;
+  color: #73767B; font-size: 14px;
+}
+
+.cat-status {
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 10px; font-weight: 700;
+  text-transform: capitalize;
+}
+.cat-status.active { background: rgba(53, 201, 130, 0.12); color: #35C982; }
+.cat-status.inactive { background: rgba(115, 118, 123, 0.15); color: #A5A7AB; }
+
+.cat-actions { display: flex; gap: 6px; }
+.cat-action-btn {
+  width: 30px; height: 30px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 6px; border: 1px solid #292B2D;
+  background: transparent; color: #A5A7AB;
+  font-size: 12px; cursor: pointer; transition: all 0.2s;
+}
+.cat-action-btn:hover { border-color: #E5B547; color: #E5B547; }
+.cat-action-btn.delete:hover {
+  border-color: #F05A5A; color: #F05A5A;
+  background: rgba(240, 90, 90, 0.08);
+}
+
+.cat-empty {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 60px 20px;
+  color: #73767B; gap: 12px; font-size: 13px; text-align: center;
+}
+
+.admin-loading-screen {
+  height: 60vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: #73767B; gap: 16px;
+}
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid rgba(229, 181, 71, 0.2);
+  border-top-color: #E5B547; border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+  .cat-table-wrap { overflow-x: auto; }
+  .cat-table { min-width: 700px; }
+}

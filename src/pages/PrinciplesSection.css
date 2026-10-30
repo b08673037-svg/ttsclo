@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- DEFAULT DARK MODE (GOLD THEME) --- */
+:root {
+  --pr-bg: #0A0A0A;
+  --pr-card-bg: #121212;
+  --pr-card-border: #292929;
+  --pr-text-main: #F7F4F0;
+  --pr-text-muted: #B8B8B8;
+  --pr-accent: #DDB52B;
+  --pr-icon-bg: #302B17;
+}
+
+/* --- LIGHT MODE OVERRIDES (ORANGE THEME) --- */
+body.light {
+  --pr-bg: #ffffff;
+  --pr-card-bg: #ffffff;
+  --pr-card-border: #E8E8E8;
+  --pr-text-main: #191919;
+  --pr-text-muted: #454545;
+  --pr-accent: #FF4B24;
+  --pr-icon-bg: #FFF1ED;
+}
+
+.principles-section {
+  background-color: var(--pr-bg);
+  padding: 80px 6% 100px 6%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.4s ease;
+}
+
+.principles-section__container {
+  max-width: 990px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.principles-section__header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.principles-section__label {
+  font-size: 14px;
+  color: var(--pr-text-muted);
+  display: block;
+  margin-bottom: 12px;
+  transition: color 0.4s ease;
+}
+
+.principles-section__heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--pr-text-main);
+  line-height: 1.15;
+  max-width: 400px;
+  margin: 0 auto;
+  transition: color 0.4s ease;
+}
+
+/* GRID */
+.principles-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* CARD */
+.principles-card {
+  background-color: var(--pr-card-bg);
+  border: 1px solid var(--pr-card-border);
+  border-radius: 14px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 186px;
+  transition: transform 250ms ease, border-color 250ms ease, background-color 0.4s ease;
+  
+  /* Entrance Animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* Staggered entrance */
+.principles-card:nth-child(1) { animation-delay: 0.1s; }
+.principles-card:nth-child(2) { animation-delay: 0.2s; }
+.principles-card:nth-child(3) { animation-delay: 0.3s; }
+.principles-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* HOVER EFFECT */
+.principles-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pr-accent);
+}
+
+/* ICON */
+.principles-card__icon {
+  width: 43px;
+  height: 43px;
+  background-color: var(--pr-icon-bg);
+  color: var(--pr-accent);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  margin-bottom: 16px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* TYPOGRAPHY */
+.principles-card__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--pr-text-main);
+  margin-bottom: 10px;
+  transition: color 0.4s ease;
+}
+
+.principles-card__description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--pr-text-muted);
+  transition: color 0.4s ease;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .principles-section__grid {
+    gap: 16px;
+  }
+  .principles-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .principles-section {
+    padding: 60px 5% 80px 5%;
+  }
+  .principles-section__heading {
+    font-size: 28px;
+  }
+  
+  /* Stack into single column */
+  .principles-section__grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .desktop-break {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .principles-card {
+    padding: 20px;
+    min-height: auto;
+  }
+  .principles-section__heading {
+    font-size: 26px;
+  }
+}
+
+/* ACCESSIBILITY - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .principles-section__header,
+  .principles-card {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .principles-card:hover {
+    transform: none !important;
+  }
+}

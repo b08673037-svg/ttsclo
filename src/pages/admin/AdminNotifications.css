@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+.admin-notifications {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.notif-page-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.page-title { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--adm-text); margin: 0 0 4px; }
+.page-subtitle { font-size: 13px; color: var(--adm-text2); margin: 0; }
+
+.notif-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.notif-stat-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px; background: var(--adm-card);
+  border: 1px solid var(--adm-border); border-radius: 12px;
+}
+.notif-stat-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.notif-stat-icon.gold { background: var(--adm-gold-soft); color: var(--adm-gold); }
+.notif-stat-icon.amber { background: rgba(244, 183, 64, 0.12); color: var(--adm-warning); }
+.notif-stat-icon.blue { background: rgba(67, 154, 242, 0.12); color: var(--adm-info); }
+.notif-stat-info { display: flex; flex-direction: column; }
+.notif-stat-label { font-size: 11px; color: var(--adm-text3); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-bottom: 3px; }
+.notif-stat-value { font-size: 22px; font-weight: 800; color: var(--adm-text); letter-spacing: -0.5px; }
+
+.notif-filter-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.notif-filter-btn {
+  padding: 8px 16px; background: var(--adm-card);
+  border: 1px solid var(--adm-border); border-radius: 8px;
+  color: var(--adm-text2); font-size: 12px; font-weight: 600;
+  cursor: pointer; font-family: inherit; transition: all 0.2s;
+}
+.notif-filter-btn:hover { color: var(--adm-text); border-color: var(--adm-gold); }
+.notif-filter-btn.active {
+  background: var(--adm-gold-soft);
+  border-color: var(--adm-gold);
+  color: var(--adm-gold);
+}
+
+.notif-page-list {
+  background: var(--adm-card);
+  border: 1px solid var(--adm-border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.notif-page-item {
+  display: flex; gap: 14px; padding: 16px 20px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--adm-border-soft);
+  transition: background 0.2s;
+}
+.notif-page-item:last-child { border-bottom: none; }
+.notif-page-item:hover { background: rgba(229, 181, 71, 0.04); }
+
+.notif-icon-wrapper {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0;
+}
+.notif-icon-wrapper.order { background: var(--adm-gold-soft); color: var(--adm-gold); }
+.notif-icon-wrapper.stock { background: rgba(244, 183, 64, 0.12); color: var(--adm-warning); }
+.notif-icon-wrapper.message { background: rgba(67, 154, 242, 0.12); color: var(--adm-info); }
+
+.notif-page-content { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.notif-page-title-row { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+.notif-page-title { font-size: 14px; font-weight: 700; color: var(--adm-text); }
+.notif-page-time { font-size: 11px; color: var(--adm-text3); white-space: nowrap; }
+.notif-page-message { font-size: 12px; color: var(--adm-text2); line-height: 1.5; }
+
+.notif-page-empty {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 60px 20px;
+  color: var(--adm-text3); gap: 12px; font-size: 13px; text-align: center;
+  background: var(--adm-card); border: 1px solid var(--adm-border);
+  border-radius: 14px;
+}
+
+.admin-loading-screen {
+  height: 60vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: var(--adm-text2); gap: 16px;
+}
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--adm-border);
+  border-top-color: var(--adm-gold);
+  border-radius: 50%; animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 1024px) { .notif-stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) {
+  .notif-stats { grid-template-columns: 1fr; }
+  .notif-dropdown { width: calc(100vw - 40px); right: -100px; }
+}

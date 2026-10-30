@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ============================================================ */
+/* ADMIN THEME VARIABLES                                        */
+/* ============================================================ */
+
+:root {
+  --adm-bg: #080909;
+  --adm-sidebar-bg: #0D0F10;
+  --adm-header-bg: #0A0B0C;
+  --adm-card: #101112;
+  --adm-card2: #141515;
+  --adm-card3: #1a1a1a;
+  --adm-border: #292B2D;
+  --adm-border-soft: rgba(41, 43, 45, 0.5);
+  --adm-gold: #E5B547;
+  --adm-gold-hover: #F5C85A;
+  --adm-gold-soft: rgba(229, 181, 71, 0.12);
+  --adm-text: #F5F5F5;
+  --adm-text2: #A5A7AB;
+  --adm-text3: #73767B;
+  --adm-success: #35C982;
+  --adm-warning: #F4B740;
+  --adm-danger: #F05A5A;
+  --adm-info: #439AF2;
+  --adm-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+body.light {
+  --adm-bg: #F5F3EF;
+  --adm-sidebar-bg: #FFFFFF;
+  --adm-header-bg: #FFFFFF;
+  --adm-card: #FFFFFF;
+  --adm-card2: #FAF8F3;
+  --adm-card3: #F2EFE7;
+  --adm-border: #E5E1D5;
+  --adm-border-soft: rgba(0, 0, 0, 0.08);
+  --adm-gold: #F4511E;
+  --adm-gold-hover: #D84315;
+  --adm-gold-soft: rgba(244, 81, 30, 0.12);
+  --adm-text: #14120C;
+  --adm-text2: #555555;
+  --adm-text3: #888888;
+  --adm-success: #22A86A;
+  --adm-warning: #D4930A;
+  --adm-danger: #D93B3B;
+  --adm-info: #2C7EDB;
+  --adm-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================================ */
+/* BASE                                                          */
+/* ============================================================ */
+
+body {
+  margin: 0;
+  background-color: var(--adm-bg);
+  color: var(--adm-text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================================ */
+/* LAYOUT                                                        */
+/* ============================================================ */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--adm-bg);
+  color: var(--adm-text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 260px;
+  transition: margin-left 0.3s ease;
+}
+
+.admin-content {
+  padding: 30px;
+  flex: 1;
+  background: var(--adm-bg);
+  color: var(--adm-text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================================ */
+/* MOBILE                                                        */
+/* ============================================================ */
+
+@media (max-width: 1024px) {
+  .admin-main { margin-left: 0; }
+  .admin-content { padding: 20px; }
+}
+
+/* ============================================================ */
+/* LOADING SCREEN                                                */
+/* ============================================================ */
+
+.admin-loading-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--adm-bg);
+  color: var(--adm-text2);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  gap: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--adm-border);
+  border-top-color: var(--adm-gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================ */
+/* GLOBAL ADMIN LIGHT MODE OVERRIDES                             */
+/* ============================================================ */
+
+.admin-dashboard,
+.admin-products,
+.admin-product-form,
+.admin-orders,
+.admin-order-details,
+.admin-categories,
+.admin-customers,
+.admin-reviews,
+.admin-analytics,
+.admin-coupons,
+.admin-inventory,
+.admin-settings,
+.admin-subscribers {
+  background: var(--adm-bg);
+  color: var(--adm-text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dash-card,
+.kpi,
+.hero-tile,
+.an-card,
+.an-kpi,
+.prod-stat-card,
+.orders-stat-card,
+.cust-stat-card,
+.rev-stat-card,
+.inv-stat-card,
+.cp-stat-card,
+.sub-stat-card,
+.prod-table-wrap,
+.orders-table-wrap,
+.cust-table-wrap,
+.rev-card,
+.inv-table-wrap,
+.cp-card,
+.sub-table-wrap,
+.settings-content,
+.cat-table-wrap,
+.cat-form-card,
+.pf-form,
+.cp-form-card,
+.od-card,
+.cust-modal,
+.inv-modal {
+  background: var(--adm-card);
+  border-color: var(--adm-border);
+  color: var(--adm-text);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-sidebar {
+  background: var(--adm-sidebar-bg);
+  border-right-color: var(--adm-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.sidebar-link { color: var(--adm-text2); }
+.sidebar-link:hover { color: var(--adm-text); background: rgba(229, 181, 71, 0.08); }
+.sidebar-link.active {
+  color: var(--adm-gold);
+  background: var(--adm-gold-soft);
+}
+
+.admin-topbar {
+  background: var(--adm-header-bg);
+  border-bottom-color: var(--adm-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.admin-content input,
+.admin-content textarea,
+.admin-content select {
+  background: var(--adm-card2);
+  color: var(--adm-text);
+  border-color: var(--adm-border);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.admin-content input:focus,
+.admin-content textarea:focus,
+.admin-content select:focus {
+  border-color: var(--adm-gold);
+}
+
+.admin-content input::placeholder,
+.admin-content textarea::placeholder {
+  color: var(--adm-text3);
+}
+
+.admin-content table th {
+  color: var(--adm-text3);
+  border-color: var(--adm-border);
+  background: var(--adm-card2);
+}
+
+.admin-content table td {
+  color: var(--adm-text);
+  border-color: var(--adm-border-soft);
+}
+
+.admin-content table tr:hover {
+  background: rgba(229, 181, 71, 0.04);
+}
+
+body.light .admin-content table tr:hover {
+  background: rgba(244, 81, 30, 0.04);
+}
+
+.text-muted { color: var(--adm-text3) !important; }
+.gold, .gold-text { color: var(--adm-gold) !important; }
+
+
+
+
+
+
+
+/* ============================================================ */
+/* MEGA OVERRIDE: Force Light Mode on ALL Admin Pages           */
+/* ============================================================ */
+
+/* 1. Page Backgrounds */
+body.light .admin-products,
+body.light .admin-product-form,
+body.light .admin-orders,
+body.light .admin-order-details,
+body.light .admin-categories,
+body.light .admin-customers,
+body.light .admin-reviews,
+body.light .admin-analytics,
+body.light .admin-coupons,
+body.light .admin-inventory,
+body.light .admin-settings,
+body.light .admin-subscribers {
+  background: var(--adm-bg) !important;
+  color: var(--adm-text) !important;
+}
+
+/* 2. All Cards, Tables & Form Wrappers */
+body.light .prod-stat-card,
+body.light .orders-stat-card,
+body.light .cust-stat-card,
+body.light .rev-stat-card,
+body.light .inv-stat-card,
+body.light .cp-stat-card,
+body.light .sub-stat-card,
+body.light .an-kpi,
+body.light .an-card,
+body.light .prod-table-wrap,
+body.light .orders-table-wrap,
+body.light .cust-table-wrap,
+body.light .inv-table-wrap,
+body.light .cp-card,
+body.light .sub-table-wrap,
+body.light .settings-content,
+body.light .cat-table-wrap,
+body.light .cat-form-card,
+body.light .pf-form,
+body.light .cp-form-card,
+body.light .od-card,
+body.light .cust-modal,
+body.light .inv-modal,
+body.light .rev-card {
+  background: var(--adm-card) !important;
+  border-color: var(--adm-border) !important;
+  color: var(--adm-text) !important;
+}
+
+/* 3. Inputs & Selects (Form Fields) */
+body.light .admin-content input,
+body.light .admin-content textarea,
+body.light .admin-content select {
+  background: var(--adm-card2) !important;
+  color: var(--adm-text) !important;
+  border-color: var(--adm-border) !important;
+}
+
+/* 4. Tables */
+body.light .admin-content table th {
+  background: var(--adm-card2) !important;
+  color: var(--adm-text3) !important;
+  border-bottom-color: var(--adm-border) !important;
+}
+
+body.light .admin-content table td {
+  color: var(--adm-text) !important;
+  border-bottom-color: var(--adm-border-soft) !important;
+}
+
+body.light .admin-content table tr:hover {
+  background: rgba(244, 81, 30, 0.04) !important;
+}
+
+/* 5. Page Titles & Subtitles */
+body.light .page-title,
+body.light .dash-card-head h3,
+body.light .settings-section-title,
+body.light .cust-name,
+body.light .prod-name,
+body.light .order-id,
+body.light .rev-customer-name {
+  color: var(--adm-text) !important;
+}
+
+body.light .page-subtitle,
+body.light .settings-group label,
+body.light .prod-stat-label,
+body.light .orders-stat-label,
+body.light .cust-stat-label,
+body.light .rev-stat-label,
+body.light .inv-stat-label,
+body.light .cp-stat-label,
+body.light .sub-stat-label {
+  color: var(--adm-text2) !important;
+}
+
+/* 6. Sidebar & Topbar (Reinforce) */
+body.light .admin-sidebar {
+  background: var(--adm-sidebar-bg) !important;
+  border-right-color: var(--adm-border) !important;
+}
+body.light .admin-topbar {
+  background: var(--adm-header-bg) !important;
+  border-bottom-color: var(--adm-border) !important;
+}
+
+/* 7. Text inside Tables */
+body.light .admin-content table td span,
+body.light .admin-content table td div {
+  color: inherit !important;
+}
+
+/* 8. Modals */
+body.light .od-card h3,
+body.light .cust-section-title,
+body.light .inv-modal-head h3 {
+  color: var(--adm-gold) !important;
+}
+body.light .od-row span,
+body.light .cust-info-label {
+  color: var(--adm-text3) !important;
+}
+body.light .od-row strong,
+body.light .cust-info-value {
+  color: var(--adm-text) !important;
+}
+
+/* 9. Empty states */
+body.light .prod-empty,
+body.light .orders-empty,
+body.light .cust-empty,
+body.light .rev-empty,
+body.light .cp-empty,
+body.light .sub-empty,
+body.light .cat-empty {
+  background: var(--adm-card) !important;
+  color: var(--adm-text3) !important;
+  border-color: var(--adm-border) !important;
+}
+
+/* 10. Tabs, Filters, Search Bars */
+body.light .prod-filter-btn,
+body.light .orders-filter-btn,
+body.light .rev-filter-btn,
+body.light .cp-filter-btn,
+body.light .inv-filter-btn,
+body.light .prod-search,
+body.light .orders-search,
+body.light .cust-search,
+body.light .rev-search,
+body.light .cp-search,
+body.light .sub-search,
+body.light .inv-search {
+  background: var(--adm-card) !important;
+  border-color: var(--adm-border) !important;
+  color: var(--adm-text) !important;
+}
+
+body.light .prod-filter-btn.active,
+body.light .orders-filter-btn.active,
+body.light .rev-filter-btn.active,
+body.light .cp-filter-btn.active,
+body.light .inv-filter-btn.active {
+  background: var(--adm-gold-soft) !important;
+  color: var(--adm-gold) !important;
+  border-color: var(--adm-gold) !important;
+}
+
+
+
+/* ============================================================ */
+/* 11. Fix Buttons, Prices & Actions in Light Mode              */
+/* ============================================================ */
+
+/* --- Primary Action Buttons (Add Product, Save, Export) --- */
+body.light .btn-primary,
+body.light .prod-add-btn,
+body.light .cat-add-btn,
+body.light .cp-add-btn,
+body.light .sub-export-btn,
+body.light .settings-save-btn,
+body.light .an-export-btn,
+body.light .pf-btn-primary,
+body.light .cat-btn-primary,
+body.light .cp-btn-primary,
+body.light .inv-btn-primary {
+  background: var(--adm-gold) !important;
+  color: #FFFFFF !important; /* White text on orange buttons */
+  border-color: var(--adm-gold) !important;
+}
+
+/* --- Icon Action Buttons (Edit/Delete/View) --- */
+body.light .prod-action-btn,
+body.light .order-action-btn,
+body.light .cat-action-btn,
+body.light .cp-action-btn,
+body.light .sub-action-btn,
+body.light .inv-adjust-btn,
+body.light .rev-action-btn {
+  background: transparent !important;
+  color: var(--adm-text2) !important;
+  border-color: var(--adm-border) !important;
+}
+
+body.light .prod-action-btn:hover,
+body.light .order-action-btn:hover,
+body.light .cat-action-btn:hover,
+body.light .inv-adjust-btn:hover {
+  color: var(--adm-gold) !important;
+  border-color: var(--adm-gold) !important;
+}
+
+body.light .prod-action-btn.delete:hover,
+body.light .order-action-btn.delete:hover,
+body.light .cat-action-btn.delete:hover,
+body.light .sub-action-btn:hover {
+  color: var(--adm-danger) !important;
+  border-color: var(--adm-danger) !important;
+  background: rgba(240, 90, 90, 0.08) !important;
+}
+
+/* --- Prices & Revenue Text --- */
+body.light .dash-table td.gold,
+body.light .dash-table td.gold-text,
+body.light .dash-table td .gold,
+body.light .top-product-price,
+body.light .an-product-revenue,
+body.light .prod-table td .bold:last-child,
+body.light .order-total,
+body.light .od-total-row.od-grand span:last-child,
+body.light .od-items-table td:last-child {
+  color: var(--adm-gold) !important;
+}
+
+/* --- Chart Colors (Sales by Category Bars) --- */
+body.light .cat-fill {
+  /* Recharts and inline styles need JS updates, but this handles CSS-based bars */
+  background: var(--adm-gold) !important;
+}
+
+/* --- Status Badges (Ensure they look readable) --- */
+body.light .stock-badge.warning { background: rgba(212, 147, 10, 0.15) !important; color: var(--adm-warning) !important; }
+body.light .stock-badge.critical { background: rgba(217, 59, 59, 0.15) !important; color: var(--adm-danger) !important; }
+body.light .prod-status.active { background: rgba(34, 168, 106, 0.15) !important; color: var(--adm-success) !important; }
+body.light .prod-status.inactive { background: rgba(136, 136, 136, 0.15) !important; color: var(--adm-text3) !important; }

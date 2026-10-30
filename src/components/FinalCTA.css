@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --cta-bg: #090909;
+  --cta-panel-bg: #121212;
+  --cta-panel-border: #292929;
+  --cta-text-main: #F5F3F0;
+  --cta-text-muted: #B0B4C0;
+  --cta-gold: #E0B72F;
+  --cta-btn-gold: #DDB32D;
+}
+
+.cta-section {
+  background-color: var(--cta-bg);
+  padding: 80px 6% 100px 6%;
+  width: 100%;
+  transition: background-color 0.4s ease;
+}
+
+body.light .cta-section {
+  background-color: #f7f6f2;
+}
+
+/* PANEL */
+.cta-panel {
+  width: min(1116px, calc(100% - 32px));
+  margin: 0 auto;
+  background-color: var(--cta-panel-bg);
+  border: 1px solid var(--cta-panel-border);
+  border-radius: 21px;
+  padding: 70px 40px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 393px;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+body.light .cta-panel {
+  background-color: #ffffff;
+  border-color: #e5e1d5;
+}
+
+/* SUBTLE BACKGROUND GLOW */
+.cta-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(224, 183, 47, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.light .cta-glow {
+  background: radial-gradient(circle, rgba(244, 81, 30, 0.08) 0%, transparent 60%);
+}
+
+/* CONTENT */
+.cta-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 750px;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* HEADING */
+.cta-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--cta-text-main);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  transition: color 0.4s ease;
+}
+
+.cta-title .text-gold {
+  color: var(--cta-gold);
+  transition: color 0.4s ease;
+}
+
+body.light .cta-title {
+  color: #14120c;
+}
+
+body.light .cta-title .text-gold {
+  color: #f4511e;
+}
+
+/* DESCRIPTION */
+.cta-desc {
+  color: var(--cta-text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 670px;
+  margin-bottom: 32px;
+  transition: color 0.4s ease;
+}
+
+body.light .cta-desc {
+  color: #555555;
+}
+
+/* BUTTONS */
+.cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 57px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+/* --- PRIMARY BUTTON (SHOP NOW) --- */
+.cta-btn--primary {
+  background-color: var(--cta-btn-gold);
+  color: #000000; 
+  padding: 0 32px;
+  box-shadow: 0 0 18px rgba(221, 179, 45, 0.3);
+}
+
+.cta-btn--primary:hover {
+  background-color: var(--cta-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(221, 179, 45, 0.5);
+}
+
+.cta-btn--primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-arrow {
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+body.light .cta-btn--primary {
+  background-color: #f4511e;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(244, 81, 30, 0.3);
+}
+
+body.light .cta-btn--primary:hover {
+  background-color: #d84315;
+  box-shadow: 0 6px 16px rgba(244, 81, 30, 0.5);
+}
+
+/* --- SECONDARY BUTTON (WHOLESALE BUYER) --- */
+.cta-btn--secondary {
+  background-color: transparent; /* Normal by default */
+  border: 1px solid #35322A; /* Dark border by default */
+  color: var(--cta-text-main);
+  padding: 0 31px;
+}
+
+/* ADDED HOVER BACKGROUND AND BORDER HERE */
+.cta-btn--secondary:hover {
+  background-color: rgba(224, 183, 47, 0.1); /* Subtle gold tint on hover */
+  border-color: var(--cta-gold); /* Gold border on hover */
+  transform: translateY(-2px);
+}
+
+body.light .cta-btn--secondary {
+  background-color: transparent;
+  color: #14120c;
+  border: 1px solid #dcdcdc;
+}
+
+body.light .cta-btn--secondary:hover {
+  background-color: rgba(244, 81, 30, 0.1);
+  border-color: #f4511e;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .cta-title { font-size: 42px; }
+  .cta-panel { padding: 60px 30px; }
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 60px 5% 80px 5%;
+  }
+  .cta-panel {
+    width: 100%;
+    padding: 40px 20px;
+    min-height: auto;
+  }
+  .cta-title {
+    font-size: 34px;
+  }
+  .cta-desc {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .cta-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .cta-title { font-size: 30px; }
+}
+
+/* ACCESSIBILITY - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .cta-content {
+    animation: none !important;
+  }
+  .cta-btn, .btn-arrow {
+    transition: none !important;
+  }
+  .cta-btn:hover {
+    transform: none !important;
+  }
+}

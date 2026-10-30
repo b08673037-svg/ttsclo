@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-gold: #d8b12d;
+  --color-gold-hover: #e4c14a;
+  --color-black: #0b0b0b;
+  --color-black-soft: #111111;
+  --color-text-muted: #c9c9c9;
+  --color-text-dim: #8a8a8a;
+  --color-contact-bg: #302713;
+  --color-border: #1f1f1f;
+  --announcement-height: 40px;
+  --navbar-height: 76px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--color-black);
+  color: #fff;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme overrides */
+body.light {
+  background: #f7f6f2;
+  color: #14120c;
+}
+
+body.light .page {
+  background: #f7f6f2;
+  color: #14120c;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+.page {
+  min-height: calc(100vh - var(--navbar-height));
+  padding: 60px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: background 0.3s ease;
+}
+
+.page h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.4rem;
+  color: var(--color-gold);
+}
+
+.page p {
+  color: var(--color-text-dim);
+  max-width: 500px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ============================================================ */
+/* PREMIUM SCROLLBAR — Obsidian Gold                            */
+/* ============================================================ */
+
+/* --- Global Variables --- */
+:root {
+  --scrollbar-track: #0B0B0B;
+  --scrollbar-thumb: #2A2A2A;
+  --scrollbar-thumb-hover: #E5B547;
+  --scrollbar-width: 10px;
+  --scrollbar-width-thin: 6px;
+}
+
+/* Light Mode override (if you use body.light) */
+body.light {
+  --scrollbar-track: #F5F3EF;
+  --scrollbar-thumb: #D4D0C7;
+  --scrollbar-thumb-hover: #F4511E;
+}
+
+/* ============================================================ */
+/* WEBKIT BROWSERS (Chrome, Edge, Safari, Brave, Opera)          */
+/* ============================================================ */
+
+/* Vertical scrollbar */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 10px;
+}
+
+/* Thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+  border: 2px solid var(--scrollbar-track);
+  transition: background 0.2s ease;
+}
+
+/* Thumb on hover — turns gold (or orange in light mode) */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  border-color: var(--scrollbar-track);
+}
+
+/* Corner where horizontal and vertical meet */
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-track);
+}
+
+/* ============================================================ */
+/* FIREFOX                                                       */
+/* ============================================================ */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Firefox does not allow hover states, but we can style root containers */
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* ============================================================ */
+/* OPTIONAL: SMOOTH SCROLLING                                    */
+/* ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================================ */
+/* HIDE SCROLLBAR UTILITY (use with class .no-scrollbar)         */
+/* ============================================================ */
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================ */
+/* THIN SCROLLBAR UTILITY (use with class .thin-scrollbar)       */
+/* ============================================================ */
+
+.thin-scrollbar::-webkit-scrollbar {
+  width: var(--scrollbar-width-thin);
+  height: var(--scrollbar-width-thin);
+}
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  border-width: 1px;
+}
+.thin-scrollbar {
+  scrollbar-width: thin;
+}

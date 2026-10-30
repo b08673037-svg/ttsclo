@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --honest-bg: #090909;
+  --honest-text-main: #F5F3F0;
+  --honest-text-muted: #B3B5BE;
+  --honest-gold: #D9B32F;
+  --honest-panel-dark: #121212;
+  --honest-border-dark: #272727;
+  --honest-red: #FF4545;
+}
+
+.honest-section {
+  background-color: var(--honest-bg);
+  padding: 100px 6%;
+  width: 100%;
+  transition: background-color 0.4s ease;
+}
+
+body.light .honest-section {
+  background-color: #f7f6f2;
+}
+
+.honest-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.honest-header {
+  margin-bottom: 48px;
+  max-width: 700px;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.honest-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--honest-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  transition: color 0.4s ease;
+}
+
+body.light .honest-eyebrow {
+  color: #f4511e;
+}
+
+.eyebrow-icon {
+  font-size: 10px;
+}
+
+.honest-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--honest-text-main);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  transition: color 0.4s ease;
+}
+
+body.light .honest-title {
+  color: #14120c;
+}
+
+.honest-desc {
+  color: var(--honest-text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  transition: color 0.4s ease;
+}
+
+body.light .honest-desc {
+  color: #555555;
+}
+
+/* COMPARISON PANEL */
+.honest-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 24px;
+  overflow: hidden; /* Ensures the inner backgrounds clip to the border radius */
+  animation: fadeUp 0.8s ease forwards;
+  border: 1px solid var(--honest-border-dark);
+}
+
+body.light .honest-comparison {
+  border-color: #e5e1d5;
+}
+
+/* SHARED PANEL STYLES */
+.honest-panel {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.4s ease;
+}
+
+.panel-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 16px;
+}
+
+.panel-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 23px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+/* LEFT PANEL (DARK) */
+.honest-panel--dark {
+  background-color: var(--honest-panel-dark);
+  color: var(--honest-text-main);
+}
+
+body.light .honest-panel--dark {
+  background-color: #ffffff;
+  color: #14120c;
+}
+
+.honest-panel--dark .panel-label {
+  color: #A5A9B5;
+}
+
+body.light .honest-panel--dark .panel-label {
+  color: #777;
+}
+
+/* RIGHT PANEL (GOLD) */
+.honest-panel--gold {
+  background-color: var(--honest-gold);
+  color: #FFFFFF;
+}
+
+body.light .honest-panel--gold {
+  background-color: #f4511e; /* Orange in light mode */
+}
+
+/* LISTS */
+.panel-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.icon-wrapper--red {
+  color: var(--honest-red);
+}
+
+.icon-wrapper--white {
+  color: #FFFFFF;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .honest-panel {
+    padding: 30px;
+  }
+  .honest-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .honest-section {
+    padding: 60px 5%;
+  }
+  .honest-title {
+    font-size: 32px;
+  }
+  .honest-comparison {
+    grid-template-columns: 1fr; /* Stacks panels vertically */
+  }
+  .honest-panel {
+    padding: 24px;
+  }
+  .panel-title {
+    font-size: 20px;
+  }
+}
+
+/* ACCESSIBILITY - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .honest-header,
+  .honest-comparison {
+    animation: none !important;
+  }
+}

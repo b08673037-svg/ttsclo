@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap');
+
+.admin-subscribers {
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sub-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 16px; flex-wrap: wrap;
+}
+.page-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px; color: #F5F5F5; margin: 0 0 4px;
+}
+.page-subtitle { font-size: 13px; color: #A5A7AB; margin: 0; }
+
+.sub-export-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; background: #E5B547;
+  color: #000; border: none; border-radius: 8px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: all 0.2s;
+}
+.sub-export-btn:hover:not(:disabled) {
+  filter: brightness(1.1); transform: translateY(-1px);
+}
+.sub-export-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.sub-stats {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+}
+.sub-stat-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px; background: #101112;
+  border: 1px solid #292B2D; border-radius: 12px;
+  transition: all 0.2s;
+}
+.sub-stat-card:hover { border-color: #E5B547; transform: translateY(-2px); }
+.sub-stat-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.sub-stat-icon.gold { background: rgba(229, 181, 71, 0.12); color: #E5B547; }
+.sub-stat-icon.green { background: rgba(53, 201, 130, 0.12); color: #35C982; }
+.sub-stat-info { display: flex; flex-direction: column; }
+.sub-stat-label {
+  font-size: 11px; color: #73767B; text-transform: uppercase;
+  letter-spacing: 0.5px; font-weight: 600; margin-bottom: 3px;
+}
+.sub-stat-value {
+  font-size: 22px; font-weight: 800; color: #F5F5F5;
+  letter-spacing: -0.5px;
+}
+
+.sub-search {
+  position: relative; max-width: 420px;
+}
+.sub-search svg {
+  position: absolute; left: 14px; top: 50%;
+  transform: translateY(-50%); color: #73767B; font-size: 14px;
+}
+.sub-search input {
+  width: 100%; height: 42px;
+  background: #101112; border: 1px solid #292B2D;
+  border-radius: 10px; padding: 0 14px 0 40px;
+  color: #F5F5F5; font-size: 13px;
+  font-family: inherit; outline: none;
+}
+.sub-search input:focus { border-color: #E5B547; }
+.sub-search input::placeholder { color: #73767B; }
+
+.sub-table-wrap {
+  background: #101112; border: 1px solid #292B2D;
+  border-radius: 12px; overflow: hidden;
+}
+.sub-table { width: 100%; border-collapse: collapse; }
+.sub-table th {
+  text-align: left; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.6px; color: #73767B; padding: 12px;
+  border-bottom: 1px solid #292B2D; background: #0D0F10; font-weight: 700;
+}
+.sub-table td {
+  padding: 14px 12px; border-bottom: 1px solid rgba(41, 43, 45, 0.5);
+  font-size: 12px; color: #F5F5F5; vertical-align: middle;
+}
+.sub-table tr:last-child td { border-bottom: none; }
+.sub-table tr:hover { background: rgba(255, 255, 255, 0.02); }
+.text-muted { color: #73767B; }
+
+.sub-email-cell { display: flex; align-items: center; gap: 10px; }
+.sub-email-icon { color: #E5B547; font-size: 14px; }
+
+.sub-status {
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 10px; font-weight: 700;
+  background: rgba(53, 201, 130, 0.12); color: #35C982;
+}
+
+.sub-action-btn {
+  width: 32px; height: 32px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 6px; border: 1px solid #292B2D;
+  background: transparent; color: #A5A7AB;
+  font-size: 12px; cursor: pointer; transition: all 0.2s;
+}
+.sub-action-btn:hover {
+  border-color: #F05A5A; color: #F05A5A;
+  background: rgba(240, 90, 90, 0.08);
+}
+
+.sub-empty {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 60px 20px;
+  color: #73767B; gap: 12px; font-size: 13px; text-align: center;
+}
+
+.admin-loading-screen {
+  height: 60vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: #73767B; gap: 16px;
+}
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid rgba(229, 181, 71, 0.2);
+  border-top-color: #E5B547; border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 768px) {
+  .sub-stats { grid-template-columns: 1fr; }
+  .sub-search { max-width: 100%; }
+  .sub-table-wrap { overflow-x: auto; }
+  .sub-table { min-width: 600px; }
+}

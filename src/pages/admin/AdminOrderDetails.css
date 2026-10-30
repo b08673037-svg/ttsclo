@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap');
+
+.admin-order-details {
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.od-back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: none; border: none; color: #A5A7AB;
+  cursor: pointer; font-size: 13px; width: fit-content;
+  transition: color 0.2s;
+}
+.od-back-btn:hover { color: #E5B547; }
+
+.od-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 16px; flex-wrap: wrap;
+  padding-bottom: 16px; border-bottom: 1px solid #292B2D;
+}
+.page-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px; color: #F5F5F5; margin: 0 0 4px;
+}
+.page-subtitle { font-size: 12px; color: #A5A7AB; margin: 0; }
+
+.od-status-control { display: flex; flex-direction: column; gap: 6px; }
+.od-status-control label {
+  font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.5px; color: #73767B; font-weight: 700;
+}
+.od-status-control select {
+  background: #101112; border: 1px solid #292B2D;
+  color: #E5B547; padding: 10px 16px;
+  border-radius: 8px; font-weight: 700; font-size: 12px;
+  outline: none; cursor: pointer; font-family: inherit;
+}
+.od-status-control select:focus { border-color: #E5B547; }
+.od-status-control option { background: #101112; color: #F5F5F5; }
+
+.od-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.od-card {
+  background: #101112;
+  border: 1px solid #292B2D;
+  border-radius: 12px;
+  padding: 20px;
+}
+.od-card h3 {
+  font-size: 13px; font-weight: 700;
+  color: #E5B547; text-transform: uppercase;
+  letter-spacing: 0.5px; margin: 0 0 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.od-row {
+  display: flex; justify-content: space-between;
+  gap: 10px; font-size: 12px;
+  padding: 6px 0; border-bottom: 1px solid rgba(41, 43, 45, 0.5);
+}
+.od-row:last-child { border-bottom: none; }
+.od-row span { color: #73767B; }
+.od-row strong { color: #F5F5F5; text-align: right; }
+
+.od-status {
+  padding: 3px 10px; border-radius: 999px;
+  font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.3px;
+}
+.od-status.pending { background: rgba(244, 183, 64, 0.12); color: #F4B740; }
+.od-status.confirmed { background: rgba(67, 154, 242, 0.12); color: #439AF2; }
+.od-status.processing { background: rgba(229, 181, 71, 0.12); color: #E5B547; }
+.od-status.shipped { background: rgba(168, 124, 232, 0.12); color: #A87CE8; }
+.od-status.delivered { background: rgba(53, 201, 130, 0.12); color: #35C982; }
+.od-status.cancelled { background: rgba(240, 90, 90, 0.12); color: #F05A5A; }
+
+.od-items-card { margin-top: 4px; }
+.od-items-table {
+  width: 100%; border-collapse: collapse; margin-bottom: 20px;
+}
+.od-items-table th {
+  text-align: left; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.6px; color: #73767B; padding: 10px 6px;
+  border-bottom: 1px solid #292B2D; font-weight: 700;
+}
+.od-items-table td {
+  padding: 12px 6px; font-size: 12px; color: #F5F5F5;
+  border-bottom: 1px solid rgba(41, 43, 45, 0.5);
+}
+
+.od-totals {
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 8px; padding-top: 16px;
+  border-top: 1px solid #292B2D;
+}
+.od-total-row {
+  display: flex; justify-content: space-between;
+  width: 260px; font-size: 12px; color: #73767B;
+}
+.od-grand {
+  font-size: 16px; font-weight: 800;
+  color: #F5F5F5; padding-top: 10px;
+  border-top: 1px solid #292B2D;
+}
+.od-grand span:last-child { color: #E5B547; }
+
+.text-muted { color: #73767B; font-size: 12px; }
+
+.admin-loading-screen {
+  height: 60vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  color: #73767B; gap: 16px;
+}
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid rgba(229, 181, 71, 0.2);
+  border-top-color: #E5B547; border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 1024px) { .od-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) {
+  .od-grid { grid-template-columns: 1fr; }
+  .od-header { flex-direction: column; }
+}

@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --faq-bg: #090909;
+  --faq-card-bg: #121212;
+  --faq-border: #292929;
+  --faq-text-main: #F5F3F0;
+  --faq-text-muted: #B0B4C0;
+  --faq-gold: #E0B72F;
+  --faq-icon-bg-closed: #302B17;
+  --faq-icon-bg-open: #E0B72F;
+}
+
+.faq-section {
+  background-color: var(--faq-bg);
+  padding: 80px 6%;
+  width: 100%;
+  transition: background-color 0.4s ease;
+}
+
+body.light .faq-section {
+  background-color: #f7f6f2;
+}
+
+.faq-container {
+  max-width: 695px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.faq-header {
+  margin-bottom: 40px;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.faq-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--faq-text-main);
+  line-height: 1.15;
+  margin-bottom: 10px;
+  transition: color 0.4s ease;
+}
+
+body.light .faq-title {
+  color: #14120c;
+}
+
+.faq-desc {
+  color: var(--faq-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  transition: color 0.4s ease;
+}
+
+body.light .faq-desc {
+  color: #555555;
+}
+
+/* LIST & CARDS */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-card {
+  background-color: var(--faq-card-bg);
+  border: 1px solid var(--faq-border);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, background-color 0.4s ease;
+}
+
+body.light .faq-card {
+  background-color: #ffffff;
+  border-color: #e5e1d5;
+}
+
+.faq-card:hover {
+  border-color: #40371F; /* Subtle gold-tinted border on hover */
+}
+
+body.light .faq-card:hover {
+  border-color: #f4511e;
+}
+
+/* ACCORDION HEADER (Button) */
+.faq-card__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+}
+
+.faq-card__question {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--faq-text-main);
+  padding-right: 20px;
+  transition: color 0.4s ease;
+}
+
+body.light .faq-card__question {
+  color: #14120c;
+}
+
+/* TOGGLE ICON */
+.faq-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 12px;
+  background-color: var(--faq-icon-bg-closed);
+  color: var(--faq-gold);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+body.light .faq-card__icon {
+  background-color: #fce8e6;
+  color: #f4511e;
+}
+
+/* When open, icon changes background and color */
+.faq-card.is-open .faq-card__icon {
+  background-color: var(--faq-icon-bg-open);
+  color: #000;
+  transform: rotate(90deg); /* Optional: adds a nice spin effect when toggling */
+}
+
+body.light .faq-card.is-open .faq-card__icon {
+  background-color: #f4511e;
+  color: #fff;
+}
+
+/* ACCORDION BODY (Animation via Grid) */
+.faq-card__body {
+  display: grid;
+  grid-template-rows: 0fr; /* Start collapsed */
+  transition: grid-template-rows 0.3s ease-out;
+}
+
+.faq-card.is-open .faq-card__body {
+  grid-template-rows: 1fr; /* Expand to fit content */
+}
+
+.faq-card__answer {
+  overflow: hidden;
+  color: var(--faq-text-muted);
+  font-size: 14px;
+  line-height: 1.65;
+  padding: 0 22px;
+  transition: color 0.4s ease, padding-bottom 0.3s ease;
+}
+
+/* Add padding to the bottom only when open so it doesn't clip */
+.faq-card.is-open .faq-card__answer {
+  padding-bottom: 22px;
+}
+
+body.light .faq-card__answer {
+  color: #555555;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 60px 5%;
+  }
+  .faq-title {
+    font-size: 32px;
+  }
+  .faq-card__header {
+    padding: 18px;
+  }
+  .faq-card__question {
+    font-size: 13px;
+  }
+  .faq-card__answer {
+    padding: 0 18px;
+    font-size: 13px;
+  }
+  .faq-card.is-open .faq-card__answer {
+    padding-bottom: 18px;
+  }
+}
+
+/* ACCESSIBILITY - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .faq-header {
+    animation: none !important;
+  }
+  .faq-card__body,
+  .faq-card__icon,
+  .faq-card {
+    transition: none !important;
+  }
+}
